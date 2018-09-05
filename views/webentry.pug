@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  h1 Who Buys Next?
+  table
+    tr
+      th Toilet
+      th Dish
+      th Refresher
+      th Garbage
+    tr
+      td
+        canvas#can1
+      td
+        canvas#can2
+      td
+        canvas#can3
+      td
+        canvas#can4 
+    tr
+      td
+        button#prev1(type='submit') prev
+        button#next1(type='submit') next
+      td
+        button#prev2(type='submit') prev
+        button#next2(type='submit') next
+      td
+        button#prev3(type='submit') prev
+        button#next3(type='submit') next
+      td
+        button#prev4(type='submit') prev
+        button#next4(type='submit') next
+    script(src='/socket.io/socket.io.js')
+    script(src='/javascripts/spinner.js')
+
+  
