@@ -18,9 +18,9 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
-
-var server = app.listen(3000,function(){
-    console.log('server listen on port 3000');
+var port = process.env.port || 3000;
+var server = app.listen(port,function(){
+    console.log('server listen on port ' + port);
 })
 
 app.use('/', indexRouter);
