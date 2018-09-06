@@ -18,7 +18,8 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
-var port = process.env.port || 3000;
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port',port);
 var server = app.listen(port,function(){
     console.log('server listen on port ' + port);
 })
