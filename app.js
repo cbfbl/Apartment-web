@@ -111,3 +111,20 @@ io.on('connection',function(socket){
         io.sockets.emit('next1',jsonContent);
     });
 });
+
+function normalizePort(val) {
+    var port = parseInt(val, 10);
+  
+    if (isNaN(port)) {
+      // named pipe
+      return val;
+    }
+  
+    if (port >= 0) {
+      // port number
+      return port;
+    }
+  
+    return false;
+  }
+  
