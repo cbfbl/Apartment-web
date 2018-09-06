@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost:3000');
+var socket = io();
 
 function dataToColorArray(data){
     var colors_array = ["gray","gray","gray","gray","gray"]
