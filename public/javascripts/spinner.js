@@ -105,21 +105,21 @@ var Dish = new Piechart(
         curr_idx : 0
     }
 );
-var Bag = new Piechart(
+var Refresher = new Piechart(
     {
         canvas:myCanvas3,
         data:myVinyls,
         colors:["gray","gray","gray","gray","gray"],
-        id: 'Bag',
+        id: 'Refresher',
         curr_idx : 0
     }
 );
-var Refresher = new Piechart(
+var Bag = new Piechart(
     {
         canvas:myCanvas4,
         data:myVinyls,
         colors:["gray","gray","gray","gray","gray"],
-        id: 'Refresher',
+        id: 'Bag',
         curr_idx : 0
     }
 );
@@ -153,12 +153,11 @@ socket.on('check',function(data){
 
     Toilet.draw();
     Dish.draw();
-    Bag.draw();
     Refresher.draw();
+    Bag.draw();
 });
 
 // Toilet spin
-
 var prev1 = document.getElementById('prev1');
 prev1.addEventListener('click',function(){
     socket.emit('prev1',{});
@@ -177,7 +176,6 @@ socket.on('next1',function(data){
 });
 
 // Dish spin
-
 var prev2 = document.getElementById('prev2');
 prev2.addEventListener('click',function(){
     socket.emit('prev2',{});
@@ -196,7 +194,6 @@ socket.on('next2',function(data){
 });
 
 // Refresher spin
-
 var prev3 = document.getElementById('prev3');
 prev3.addEventListener('click',function(){
     socket.emit('prev3',{});
@@ -215,7 +212,6 @@ socket.on('next3',function(data){
 });
 
 // Bag spin
-
 var prev4 = document.getElementById('prev4');
 prev4.addEventListener('click',function(){
     socket.emit('prev4',{});
