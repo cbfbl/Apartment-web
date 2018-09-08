@@ -60,7 +60,7 @@ io.on('connection',function(socket){
         }
         jsonContent.Dish-=1;
         fs.writeFileSync("active_indices.json",JSON.stringify(jsonContent));
-        io.sockets.emit('prev1',jsonContent);
+        io.sockets.emit('prev2',jsonContent);
     });
     socket.on('next2',function(data){
         if (jsonContent.Dish==4){
@@ -70,7 +70,7 @@ io.on('connection',function(socket){
             jsonContent.Dish+=1
         }
         fs.writeFileSync("active_indices.json",JSON.stringify(jsonContent));
-        io.sockets.emit('next1',jsonContent);
+        io.sockets.emit('next2',jsonContent);
     });
 
     socket.on('prev3',function(data){
@@ -79,7 +79,7 @@ io.on('connection',function(socket){
         }
         jsonContent.Refresher-=1;
         fs.writeFileSync("active_indices.json",JSON.stringify(jsonContent));
-        io.sockets.emit('prev1',jsonContent);
+        io.sockets.emit('prev3',jsonContent);
     });
     socket.on('next3',function(data){
         if (jsonContent.Refresher==4){
@@ -89,7 +89,7 @@ io.on('connection',function(socket){
             jsonContent.Refresher+=1
         }
         fs.writeFileSync("active_indices.json",JSON.stringify(jsonContent));
-        io.sockets.emit('next1',jsonContent);
+        io.sockets.emit('next3',jsonContent);
     });
 
     socket.on('prev4',function(data){
@@ -98,7 +98,7 @@ io.on('connection',function(socket){
         }
         jsonContent.Bag-=1;
         fs.writeFileSync("active_indices.json",JSON.stringify(jsonContent));
-        io.sockets.emit('prev1',jsonContent);
+        io.sockets.emit('prev4',jsonContent);
     });
     socket.on('next4',function(data){
         if (jsonContent.Bag==4){
@@ -108,7 +108,7 @@ io.on('connection',function(socket){
             jsonContent.Bag+=1
         }
         fs.writeFileSync("active_indices.json",JSON.stringify(jsonContent));
-        io.sockets.emit('next1',jsonContent);
+        io.sockets.emit('next4',jsonContent);
     });
 });
 
