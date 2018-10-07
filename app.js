@@ -110,6 +110,25 @@ io.on('connection',function(socket){
         fs.writeFileSync("active_indices.json",JSON.stringify(jsonContent));
         io.sockets.emit('next4',jsonContent);
     });
+
+    socket.on('prev5',function(data){
+        if (jsonContent.Hand==0){
+            jsonContent.Hand=5;
+        }
+        jsonContent.Hand-=1;
+        fs.writeFileSync("active_indices.json",JSON.stringify(jsonContent));
+        io.sockets.emit('prev5',jsonContent);
+    });
+    socket.on('next5',function(data){
+        if (jsonContent.Hand==4){
+            jsonContent.Hand=0;
+        }
+        else {
+            jsonContent.Hand+=1
+        }
+        fs.writeFileSync("active_indices.json",JSON.stringify(jsonContent));
+        io.sockets.emit('next5',jsonContent);
+    });
 });
 
 function normalizePort(val) {

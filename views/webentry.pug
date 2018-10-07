@@ -4,10 +4,11 @@ block content
   h1 Who Buys Next?
   table
     tr
-      th Toilet
-      th Dish
-      th Refresher
-      th Garbage
+      th Toilet paper
+      th Dishwashing soap
+      th Air Refresher
+      th Garbage bags
+      th Hand soap
     tr
       td
         canvas#can1
@@ -17,6 +18,8 @@ block content
         canvas#can3
       td
         canvas#can4 
+      td
+        canvas#can5
     tr
       td
         button#prev1(type='submit') prev
@@ -30,6 +33,9 @@ block content
       td
         button#prev4(type='submit') prev
         button#next4(type='submit') next
+      td
+        button#prev5(type='submit') prev
+        button#next5(type='submit') next 
     script(src='/socket.io/socket.io.js')
     script(src='/javascripts/spinner.js')
 

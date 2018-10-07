@@ -26,6 +26,11 @@ myCanvas4.width = 300;
 myCanvas4.height = 300;
 var ctx = myCanvas4.getContext("2d");
 
+var myCanvas5 = document.getElementById("can5");
+myCanvas5.width = 300;
+myCanvas5.height = 300;
+var ctx = myCanvas5.getContext("2d");
+
 var Piechart = function(options){
     this.options = options;
     this.canvas = options.canvas;
@@ -42,9 +47,9 @@ var Piechart = function(options){
         }
 
         var start_angle = 0;
+        var slice_angle = 2 * Math.PI / total_value;
         for (categ in this.options.data){
-            var slice_angle = 2 * Math.PI / total_value;
-
+            
             drawPieSlice(
                 this.ctx,
                 this.canvas.width/2,
@@ -62,6 +67,7 @@ var Piechart = function(options){
                 start_angle,
                 start_angle+slice_angle
             )
+            
             var pieRadius = Math.min(this.canvas.width/2,this.canvas.height/2);
             var labelX = this.canvas.width/2 + (pieRadius / 2) * Math.cos(start_angle + slice_angle/2);
             var labelY = this.canvas.height/2 + (pieRadius / 2) * Math.sin(start_angle + slice_angle/2);
@@ -69,7 +75,8 @@ var Piechart = function(options){
             this.ctx.font = "bold 20px Arial";
             this.ctx.fillText(this.options.data[categ], labelX,labelY);
             start_angle += slice_angle;
-            color_index++;  
+            color_index++;
+            
         } 
     }
     
@@ -123,6 +130,15 @@ var Bag = new Piechart(
         curr_idx : 0
     }
 );
+var Hand = new Piechart(
+    {
+        canvas:myCanvas5,
+        data:myVinyls,
+        colors:["gray","gray","gray","gray","gray"],
+        id: 'Hand',
+        curr_idx : 0
+    }
+);
 
 function drawPieSlice(ctx,centerX, centerY, radius, startAngle, endAngle, color ){
     ctx.fillStyle = color;
@@ -150,11 +166,13 @@ socket.on('check',function(data){
     Dish.putColorArray(data["Dish"]);
     Refresher.putColorArray(data["Refresher"]);
     Bag.putColorArray(data["Bag"]);
+    Hand.putColorArray(data["Hand"]);
 
     Toilet.draw();
     Dish.draw();
     Refresher.draw();
     Bag.draw();
+    Hand.draw();
 });
 
 // Toilet spin
@@ -229,6 +247,23 @@ socket.on('next4',function(data){
     Bag.draw();
 });
 
+// Dish spin
+var prev5 = document.getElementById('prev5');
+prev5.addEventListener('click',function(){
+    socket.emit('prev5',{});
+});
+socket.on('prev5',function(data){
+    Hand.putColorArray(data["Hand"]);
+    Hand.draw();
+});
+var next5 = document.getElementById('next5');
+next5.addEventListener('click',function(){
+    socket.emit('next5',{});
+});
+socket.on('next5',function(data){
+    Hand.putColorArray(data["Hand"]);
+    Hand.draw();
+});
 
 
 
