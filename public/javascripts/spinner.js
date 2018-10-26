@@ -87,11 +87,11 @@ var Piechart = function(options){
 }
 
 var myVinyls = {
-    "room1": 'guy1',
-    "room2": 'guy2',
-    "room3": 'guy3',
-    "room4": 'guy4',
-    "room5": 'guy5'
+    "room1": 'Yoni',
+    "room2": 'Avi',
+    "room3": 'Chen',
+    "room4": 'Alon',
+    "room5": 'Amir'
 };
 
 var Toilet = new Piechart(
