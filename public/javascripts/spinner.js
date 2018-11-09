@@ -162,11 +162,11 @@ function drawPieSliceEmpty(ctx,centerX,centerY,radius,startAngle,endAngle){
 
 socket.on('check',function(data){
 
-    Toilet.putColorArray(data["Toilet"]);
-    Dish.putColorArray(data["Dish"]);
-    Refresher.putColorArray(data["Refresher"]);
-    Bag.putColorArray(data["Bag"]);
-    Hand.putColorArray(data["Hand"]);
+    Toilet.putColorArray(data[0]);
+    Dish.putColorArray(data[1]);
+    Refresher.putColorArray(data[2]);
+    Bag.putColorArray(data[3]);
+    Hand.putColorArray(data[4]);
 
     Toilet.draw();
     Dish.draw();
@@ -180,16 +180,16 @@ var prev1 = document.getElementById('prev1');
 prev1.addEventListener('click',function(){
     socket.emit('prev1',{});
 });
-socket.on('prev1',function(data){
-    Toilet.putColorArray(data["Toilet"]);
+socket.on('prev1',function(active_index){
+    Toilet.putColorArray(active_index);
     Toilet.draw();
 });
 var next1 = document.getElementById('next1');
 next1.addEventListener('click',function(){
     socket.emit('next1',{});
 });
-socket.on('next1',function(data){
-    Toilet.putColorArray(data["Toilet"]);
+socket.on('next1',function(active_index){
+    Toilet.putColorArray(active_index);
     Toilet.draw();
 });
 
@@ -198,16 +198,16 @@ var prev2 = document.getElementById('prev2');
 prev2.addEventListener('click',function(){
     socket.emit('prev2',{});
 });
-socket.on('prev2',function(data){
-    Dish.putColorArray(data["Dish"]);
+socket.on('prev2',function(active_index){
+    Dish.putColorArray(active_index);
     Dish.draw();
 });
 var next2 = document.getElementById('next2');
 next2.addEventListener('click',function(){
     socket.emit('next2',{});
 });
-socket.on('next2',function(data){
-    Dish.putColorArray(data["Dish"]);
+socket.on('next2',function(active_index){
+    Dish.putColorArray(active_index);
     Dish.draw();
 });
 
@@ -216,52 +216,52 @@ var prev3 = document.getElementById('prev3');
 prev3.addEventListener('click',function(){
     socket.emit('prev3',{});
 });
-socket.on('prev3',function(data){
-    Refresher.putColorArray(data["Refresher"]);
+socket.on('prev3',function(active_index){
+    Refresher.putColorArray(active_index);
     Refresher.draw();
 });
 var next3 = document.getElementById('next3');
 next3.addEventListener('click',function(){
     socket.emit('next3',{});
 });
-socket.on('next3',function(data){
-    Refresher.putColorArray(data["Refresher"]);
+socket.on('next3',function(active_index){
+    Refresher.putColorArray(active_index);
     Refresher.draw();
 });
 
-// Bag spin
+// Floor spin
 var prev4 = document.getElementById('prev4');
 prev4.addEventListener('click',function(){
     socket.emit('prev4',{});
 });
-socket.on('prev4',function(data){
-    Bag.putColorArray(data["Bag"]);
+socket.on('prev4',function(active_index){
+    Bag.putColorArray(active_index);
     Bag.draw();
 });
 var next4 = document.getElementById('next4');
 next4.addEventListener('click',function(){
     socket.emit('next4',{});
 });
-socket.on('next4',function(data){
-    Bag.putColorArray(data["Bag"]);
+socket.on('next4',function(active_index){
+    Bag.putColorArray(active_index);
     Bag.draw();
 });
 
-// Dish spin
+// Hand spin
 var prev5 = document.getElementById('prev5');
 prev5.addEventListener('click',function(){
     socket.emit('prev5',{});
 });
-socket.on('prev5',function(data){
-    Hand.putColorArray(data["Hand"]);
+socket.on('prev5',function(active_index){
+    Hand.putColorArray(active_index);
     Hand.draw();
 });
 var next5 = document.getElementById('next5');
 next5.addEventListener('click',function(){
     socket.emit('next5',{});
 });
-socket.on('next5',function(data){
-    Hand.putColorArray(data["Hand"]);
+socket.on('next5',function(active_index){
+    Hand.putColorArray(active_index);
     Hand.draw();
 });
 
