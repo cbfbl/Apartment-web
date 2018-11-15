@@ -47,11 +47,11 @@ var SpinnerModel = mongoose.model('SpinnerModel',SpinnerSchema);
 io.on('connection',function(socket){
     SpinnerModel.find(function (err,active_indices){
         var actual_active_indices = [ 
-            active_indices[4].active_index,
             active_indices[0].active_index,
             active_indices[1].active_index,
             active_indices[2].active_index,
-            active_indices[3].active_index      
+            active_indices[3].active_index,
+            active_indices[4].active_index      
         ]
         io.sockets.emit('check',actual_active_indices);
     });

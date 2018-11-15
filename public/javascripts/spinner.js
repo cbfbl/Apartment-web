@@ -163,10 +163,10 @@ function drawPieSliceEmpty(ctx,centerX,centerY,radius,startAngle,endAngle){
 socket.on('check',function(data){
 
     Toilet.putColorArray(data[0]);
-    Dish.putColorArray(data[1]);
-    Refresher.putColorArray(data[2]);
-    Bag.putColorArray(data[3]);
-    Hand.putColorArray(data[4]);
+    Dish.putColorArray(data[4]);
+    Refresher.putColorArray(data[1]);
+    Bag.putColorArray(data[2]);
+    Hand.putColorArray(data[3]);
 
     Toilet.draw();
     Dish.draw();
